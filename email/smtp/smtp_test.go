@@ -1,6 +1,10 @@
 package smtp
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+	"time"
+)
 
 func TestEmail_Send(t *testing.T) {
 	e := New(&Option{})
@@ -12,4 +16,9 @@ func TestEmail_Send(t *testing.T) {
 	}
 
 	t.Log("pass")
+
+	//2022-05-17T09:15:24.480Z
+	var zone = time.FixedZone("CST", 0)
+	time.Local = zone
+	fmt.Println(time.Now().Format(time.RFC3339Nano))
 }
