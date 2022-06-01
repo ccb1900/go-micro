@@ -1,7 +1,9 @@
 package consul
 
 import (
+	"fmt"
 	"github.com/ccb1900/go-micro/log"
+	"github.com/ccb1900/go-micro/registry"
 	"github.com/hashicorp/consul/api"
 	"math/rand"
 	"strconv"
@@ -40,14 +42,18 @@ func (r *Registry) Close() error {
 	return nil
 }
 
-func (r *Registry) HttpRegister(svcId, svcName string, svcHost string, svcPort int, tags []string) error {
+func (r *Registry) Register(t registry.RegisterType, svcId, svcName string, svcHost string, svcPort int, tags []string) error {
 	// 健康检查地址
 	check := api.AgentServiceCheck{
-		HTTP:                           "http://" + svcHost + ":" + strconv.Itoa(svcPort) + "/health",
 		Interval:                       r.option.HealthInterval,
 		Timeout:                        r.option.HealthTimeout,
-		Notes:                          "http health check",
+		Notes:                          "health check",
 		DeregisterCriticalServiceAfter: r.option.HealthDeregister,
+	}
+	if t == registry.GRPC {
+		check.GRPC = fmt.Sprintf("%v:%v/%v", svcHost, svcPort, "grpc.service")
+	} else {
+		check.HTTP = "http://" + svcHost + ":" + strconv.Itoa(svcPort) + "/health"
 	}
 
 	// 设置注册信息
@@ -63,6 +69,7 @@ func (r *Registry) HttpRegister(svcId, svcName string, svcHost string, svcPort i
 	err := r.client.Agent().ServiceRegister(registration)
 	if err != nil {
 		log.Default().Error(err)
+		return err
 	}
 	return nil
 }

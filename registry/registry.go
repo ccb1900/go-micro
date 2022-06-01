@@ -6,8 +6,14 @@ type Registry interface {
 	Open() error
 	Close() error
 	Discovery(svcName string, tag string) string
-	HttpRegister(svcId, svcName string, svcHost string, svcPort int, tags []string) error
+	Register(t RegisterType, svcId, svcName string, svcHost string, svcPort int, tags []string) error
 }
+type RegisterType int
+
+const (
+	GRPC RegisterType = iota + 1
+	HTTP
+)
 
 type Option struct {
 	Driver string
