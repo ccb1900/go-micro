@@ -106,3 +106,11 @@ cache:
     - driver: zap
       debug: false
 ```
+
+## 内置微服务
+
+- 邮件
+- 短信
+- 存储
+- 缓存
+- 支付
