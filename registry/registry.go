@@ -14,6 +14,16 @@ type Option struct {
 	Consul consul.Option
 }
 
-func Get(driver string) {
+var container map[string]Registry
 
+func Init() {
+	container = make(map[string]Registry)
+}
+
+func Get(driver string) Registry {
+	return container[driver]
+}
+
+func Set(driver string, registry Registry) {
+	container[driver] = registry
 }

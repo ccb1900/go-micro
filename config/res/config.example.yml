@@ -1,0 +1,67 @@
+name: go micro
+host: 0.0.0.0
+port: 12348
+svcName: hello
+svcId: 1
+tags:
+  - t1
+  - t2
+  - t3
+# 日志配置
+log:
+  default: local
+  drivers:
+    - driver: zap
+      debug: false
+# 消息队列配置
+mq:
+  default: rabbitmq
+  enabled: false
+  drivers:
+    - driver: zap
+      debug: false
+# 数据库
+db:
+  default: rabbitmq
+  enabled: false
+  drivers:
+    - driver: zap
+      debug: false
+redis:
+  default: redigo
+  enabled: false
+  drivers:
+    - driver: zap
+      debug: false
+# 短信
+sms:
+  default: rabbitmq
+  enabled: false
+  drivers:
+    - driver: zap
+      debug: false
+email:
+  default: rabbitmq
+  enabled: false
+  drivers:
+    - driver: zap
+      debug: false
+registry:
+  default: rabbitmq
+  enabled: false
+  drivers:
+    - driver: zap
+      debug: false
+# 配置中心
+config:
+  default: local
+  enabled: false
+  drivers:
+    - driver: consul
+      debug: false
+cache:
+  default: redis
+  enabled: false
+  drivers:
+    - driver: redis
+      debug: false

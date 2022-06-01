@@ -6,3 +6,7 @@ func Get[T](key string) T {
 
 	return t
 }
+
+func Init() {
+
+}
