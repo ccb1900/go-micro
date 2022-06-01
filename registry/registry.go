@@ -1,6 +1,6 @@
 package registry
 
-import "go-micro/registry/consul"
+import "github.com/ccb1900/go-micro/registry/consul"
 
 type Registry interface {
 	Open() error

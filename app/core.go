@@ -1,8 +1,8 @@
 package app
 
 import (
-	"go-micro/log"
-	"go-micro/registry"
+	"github.com/ccb1900/go-micro/log"
+	"github.com/ccb1900/go-micro/registry"
 )
 
 type App interface {

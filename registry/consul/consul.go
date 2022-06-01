@@ -1,8 +1,8 @@
 package consul
 
 import (
+	"github.com/ccb1900/go-micro/log"
 	"github.com/hashicorp/consul/api"
-	"go-micro/log"
 	"math/rand"
 	"strconv"
 	"time"

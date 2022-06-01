@@ -1,4 +1,4 @@
-module go-micro
+module github.com/ccb1900/go-micro
 
 go 1.18
 

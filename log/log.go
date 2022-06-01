@@ -1,6 +1,6 @@
 package log
 
-import "go-micro/log/zap"
+import "github.com/ccb1900/go-micro/log/zap"
 
 type Log interface {
 	GetName() string
