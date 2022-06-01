@@ -5,9 +5,7 @@ import (
 	"github.com/ccb1900/go-micro/log"
 	"github.com/ccb1900/go-micro/registry"
 	"github.com/hashicorp/consul/api"
-	"math/rand"
 	"strconv"
-	"time"
 )
 
 type Registry struct {
@@ -73,14 +71,21 @@ func (r *Registry) Register(t registry.RegisterType, svcId, svcName string, svcH
 	}
 	return nil
 }
-func (r *Registry) Discovery(svcName string, tag string) string {
+func (r *Registry) Discovery(svcName string, tag string) []registry.DiscoveryServer {
 	services, _, err := r.client.Health().Service(svcName, tag, true, nil)
 	if err != nil {
 		log.Default().Error(err)
-		return ""
+		return nil
 	}
-	rand.Seed(time.Now().UnixNano())
-	return services[rand.Intn(len(services))].Service.Address
+
+	ds := make([]registry.DiscoveryServer, len(services))
+	for i := 0; i < len(services); i++ {
+		ds[i] = registry.DiscoveryServer{
+			Ip:   services[i].Node.Address,
+			Port: services[i].Service.Port,
+		}
+	}
+	return ds
 }
 func New(option *Option) *Registry {
 	//s := config.Get[string]("a")

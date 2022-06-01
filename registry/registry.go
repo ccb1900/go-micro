@@ -5,7 +5,7 @@ import "github.com/ccb1900/go-micro/registry/consul"
 type Registry interface {
 	Open() error
 	Close() error
-	Discovery(svcName string, tag string) string
+	Discovery(svcName string, tag string) []DiscoveryServer
 	Register(t RegisterType, svcId, svcName string, svcHost string, svcPort int, tags []string) error
 }
 type RegisterType int
@@ -18,6 +18,11 @@ const (
 type Option struct {
 	Driver string
 	Consul consul.Option
+}
+
+type DiscoveryServer struct {
+	Ip   string
+	Port int
 }
 
 var container map[string]Registry
