@@ -1,0 +1,11 @@
+services:
+  redis:
+  postgressql:
+  mariadb:
+  es:
+  minio:
+  mail:
+  rabbitmq:
+  consul:
+  etcd:
+  nacos:
