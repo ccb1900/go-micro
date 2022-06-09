@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.46">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <title>你好，微服务</title><meta name="description" content="一起走进微服务">
+    <link rel="modulepreload" href="/go-micro/assets/app.f70e3cb9.js"><link rel="modulepreload" href="/go-micro/assets/404.html.7e8ba87b.js"><link rel="modulepreload" href="/go-micro/assets/404.html.93146c89.js"><link rel="prefetch" href="/go-micro/assets/cache.html.0c549450.js"><link rel="prefetch" href="/go-micro/assets/console.html.bdea0e6c.js"><link rel="prefetch" href="/go-micro/assets/email.html.38892bde.js"><link rel="prefetch" href="/go-micro/assets/env.html.accccd95.js"><link rel="prefetch" href="/go-micro/assets/pay.html.1646415c.js"><link rel="prefetch" href="/go-micro/assets/index.html.67a8c14d.js"><link rel="prefetch" href="/go-micro/assets/start.html.6c8cd031.js"><link rel="prefetch" href="/go-micro/assets/ws.html.f904220d.js"><link rel="prefetch" href="/go-micro/assets/cache.html.efa9fe54.js"><link rel="prefetch" href="/go-micro/assets/console.html.59371b90.js"><link rel="prefetch" href="/go-micro/assets/email.html.033f96b5.js"><link rel="prefetch" href="/go-micro/assets/env.html.e3822d9d.js"><link rel="prefetch" href="/go-micro/assets/pay.html.f745e1e6.js"><link rel="prefetch" href="/go-micro/assets/index.html.5de5a636.js"><link rel="prefetch" href="/go-micro/assets/start.html.84b6b97f.js"><link rel="prefetch" href="/go-micro/assets/ws.html.39509e0f.js"><link rel="prefetch" href="/go-micro/assets/404.6fadb308.js"><link rel="prefetch" href="/go-micro/assets/Layout.f6501e0c.js">
+    <link rel="stylesheet" href="/go-micro/assets/style.26822eda.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><div class="theme-default-content"><h1>404</h1><blockquote>Looks like we&#39;ve got some broken links.</blockquote><a href="/go-micro/" class="">Take me home</a></div></div><!----><!--]--></div>
+    <script type="module" src="/go-micro/assets/app.f70e3cb9.js" defer></script>
+  </body>
+</html>
